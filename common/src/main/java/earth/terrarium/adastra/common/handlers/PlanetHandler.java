@@ -68,6 +68,11 @@ public class PlanetHandler extends SaveHandler {
         return data == null ? OxygenApi.API.hasOxygen(level) : data.oxygen();
     }
 
+    public static boolean hasOxygenDataOnly(ServerLevel level, BlockPos pos) {
+        PlanetData data = read(level).planetData.get(pos);
+        return data != null && data.oxygen();
+    }
+
     public static short getTemperature(ServerLevel level, BlockPos pos) {
         PlanetData data = read(level).planetData.get(pos);
         return data == null ? TemperatureApi.API.getTemperature(level) : data.temperature();

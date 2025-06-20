@@ -40,6 +40,15 @@ public interface OxygenApi {
     boolean hasOxygen(Level level, BlockPos pos);
 
     /**
+     * Returns whether the given position has oxygen.
+     *
+     * @param level The level to check.
+     * @param pos   The position to check.
+     * @return Whether the position has oxygen.
+     */
+    boolean hasOxygenDataOnly(Level level, BlockPos pos);
+
+    /**
      * Returns whether the given entity has oxygen.
      *
      * @param entity The entity to check.

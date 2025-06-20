@@ -38,6 +38,12 @@ public class OxygenApiImpl implements OxygenApi {
     }
 
     @Override
+    public boolean hasOxygenDataOnly(Level level, BlockPos pos) {
+        if (!(level instanceof ServerLevel serverLevel)) return hasOxygen(level);
+        return PlanetHandler.hasOxygenDataOnly(serverLevel, pos);
+    }
+
+    @Override
     public boolean hasOxygen(Entity entity) {
         boolean hasOxygen = hasOxygen(entity.level(), BlockPos.containing(entity.getX(), entity.getEyeY(), entity.getZ()));
         return AdAstraEvents.EntityOxygenEvent.fire(entity, hasOxygen);

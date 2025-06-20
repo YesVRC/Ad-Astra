@@ -25,6 +25,7 @@ public class LivingBreatheEventSubscriber {
                 && player.tickCount % 12 == 0
                 && SpaceSuitItem.hasOxygen(player)
                 && !event.canBreathe()
+                // you already check for water in the item
                 && player.getEyeInFluidType() != ForgeMod.WATER_TYPE.get())
             {
                 item.consumeOxygen(stack, 1);
